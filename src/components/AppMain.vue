@@ -21,7 +21,16 @@
                     }
                 }).then(response => {
                     console.log(response);
-                })
+                    this.projects = response.data.results.data;
+                    this.currentPage = response.data.results.current_page;
+                    this.lastPage = response.data.results.last_page;
+                });
+            },
+            truncateContent(content) {
+                if (content && content.length > this.contentMaxLength) {
+                    return content.substr(0, this.contentMaxLenght) + ' .. continua a leggere';
+                }
+                return content;
             }
         },
         mounted() {
