@@ -1,5 +1,6 @@
 <script>
     import axios from 'axios';
+    import ProjectCard from './ProjectCard.vue';
 
     export default {
         name: 'AppMain',
@@ -11,6 +12,9 @@
                 currentPage: 1,
                 lastPage: null
             }
+        },
+        components: {
+            ProjectCard,
         },
         methods: {
             getProjects(goToPage) {
@@ -40,7 +44,27 @@
 </script>
 
 <template>
+    <div class="container">
+        <h2>Progetti:</h2>
+        <div class="row">
+            <div class="col-4" v-for="(project, index) in projects" :key="index">
+                <ProjectCard
+                :image="`${this.baseUrl}/storage/${project.cover_image}`"
+                :title="project.title"
+                :type="project.type?.name"
+                :technology="project.technology?.name"
+                :content="truncateContent(project.content)">
 
+                </ProjectCard>
+            </div>
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><button class="page-link" @click="getProjects(currentPage - 1)" :class="{'disabled' : currentPage == 1}">Previous</button></li>
+                <li class="page-item"><button class="page-link" @click="getProjects(currentPage + 1)" :class="{'disabled' : currentPage == lastPage}">Next</button></li>
+            </ul>
+        </nav>
+    </div>
 </template>
 
 <style lang="scss" scoped>
