@@ -7,7 +7,7 @@
         data() {
             return {
                 projects: [],
-                contentMaxLenght: 185,
+                contentMaxLength: 185,
                 baseUrl: 'http://127.0.0.1:8000',
                 currentPage: 1,
                 lastPage: null
@@ -32,7 +32,7 @@
             },
             truncateContent(content) {
                 if (content && content.length > this.contentMaxLength) {
-                    return content.substr(0, this.contentMaxLenght) + ' .. continua a leggere';
+                    return content.substr(0, this.contentMaxLength) + ' .. continua a leggere';
                 }
                 return content;
             }
