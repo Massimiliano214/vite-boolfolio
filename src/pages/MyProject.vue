@@ -51,6 +51,7 @@
                 <ProjectCard
                 :image="`${this.baseUrl}/storage/${project.cover_image}`"
                 :title="project.title"
+                :slug="project.slug"
                 :type="project.type?.name"
                 :technology="project.technology?.name"
                 :content="truncateContent(project.content)">

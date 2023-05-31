@@ -18,7 +18,7 @@
                 {
                     label: 'Progetti',
                     routeName: 'projects'
-                },]
+                }]
             }
         }
     }

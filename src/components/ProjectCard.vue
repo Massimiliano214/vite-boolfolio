@@ -4,6 +4,7 @@
         props: {
             image: String,
             title: String,
+            slug: String,
             type: String,
             technology: String,
             content: String,
@@ -21,6 +22,7 @@
             <h5>{{type}}</h5>
             <h5>{{technology}}</h5>
             <p class="card-text">{{content}}</p>
+            <router-link :to="{name: 'project', params: {slug: slug}}" class="btn btn-primary">Apri</router-link>
         </div>
     </div>
 </template>
