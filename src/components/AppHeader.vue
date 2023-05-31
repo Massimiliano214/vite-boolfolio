@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" v-for="link in linksMenu">
-                        <router-link :to="{name: item.routeName}" class="nav-link active">{{item.label}}</router-link>
+                        <router-link :to="{name: link.routeName}" class="nav-link active">{{link.label}}</router-link>
                     </li>
                     
                 </ul>
