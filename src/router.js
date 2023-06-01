@@ -29,7 +29,7 @@ const router = createRouter({
         component: MyProject
     },
     {
-        path: '/project:slug',
+        path: '/project-:slug',
         name: 'project',
         component: MyShow
     },
