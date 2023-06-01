@@ -4,6 +4,7 @@ import MyContacts from './pages/MyContacts.vue';
 import MyAbout from './pages/MyAbout.vue';
 import MyProject from './pages/MyProject.vue';
 import MyShow from './pages/MyShow.vue';
+import MyError from './pages/MyError.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,10 +27,16 @@ const router = createRouter({
         path: '/projects',
         name: 'projects',
         component: MyProject
-    },{
+    },
+    {
         path: '/project:slug',
         name: 'project',
         component: MyShow
+    },
+    {
+        path: '/:pathMatch(.*)',
+        name: 'notFound',
+        component: MyError
     }]
 });
 
