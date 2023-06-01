@@ -11,7 +11,8 @@
                 contentMaxLength: 185,
                 store,
                 currentPage: 1,
-                lastPage: null
+                lastPage: null,
+                loading: true
             }
         },
         components: {
@@ -19,7 +20,7 @@
         },
         methods: {
             getProjects(goToPage) {
-                
+                this.loading = true;
                 axios.get(`${this.store.baseUrl}/api/projects`, {
                     params: {
                         page: goToPage
@@ -29,6 +30,7 @@
                     this.projects = response.data.results.data;
                     this.currentPage = response.data.results.current_page;
                     this.lastPage = response.data.results.last_page;
+                    this.loading = false;
                 });
             },
             truncateContent(content) {
@@ -48,7 +50,7 @@
     <div class="container">
         <h2>Progetti:</h2>
         <div class="row">
-            <div class="col-4" v-for="(project, index) in projects" :key="index">
+            <div v-if="loading == false" class="col-4" v-for="(project, index) in projects" :key="index">
                 <ProjectCard
                 :image="`${this.store.baseUrl}/storage/${project.cover_image}`"
                 :title="project.title"
@@ -58,6 +60,10 @@
                 :content="truncateContent(project.content)">
 
                 </ProjectCard>
+            </div>
+            <div v-else>
+                <h2>Attendi</h2>
+                <img src="/loader.gif" alt="Caricamento">
             </div>
         </div>
         <nav aria-label="Page navigation example">
