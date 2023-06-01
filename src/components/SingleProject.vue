@@ -23,7 +23,7 @@
             <p class="card-text">{{project.content}}</p>
             <router-link :to="{name: 'project', params: {slug: 'mio-project'}}" class="btn btn-primary">
             Vedi Post mio project
-        </router-link>
+            </router-link>
         </div>
     </div>
 </template>

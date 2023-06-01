@@ -19,16 +19,14 @@
             console.log(slug);
             axios.get(`${this.store.baseUrl}/api/project/${slug}`)
             .then(response => {
-                console.log(response.data);
-                this.project = response.data.project;
-                
+                if (response.data.success == true) {
+                    console.log(response.data);
+                    this.project = response.data.project;
+                } else {
+                    this.$router.push({name: 'notFound'});
+                }
             })
-        },
-        async creates() {
-            this.$watch(
-                () => this.$route.params,
-                axios.get(`${this.store.baseUrl}/api/project/${slug}`))
-    }
+        }
     }
 </script>
 
