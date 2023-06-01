@@ -54,7 +54,7 @@
                 :title="project.title"
                 :slug="project.slug"
                 :type="project.type?.name"
-                :technology="project.technology?.name"
+                :project="project"
                 :content="truncateContent(project.content)">
 
                 </ProjectCard>

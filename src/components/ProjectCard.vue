@@ -6,7 +6,7 @@
             title: String,
             slug: String,
             type: String,
-            technology: String,
+            project: Object,
             content: String,
 
         }
@@ -20,7 +20,7 @@
         <div class="card-body">
             <h5 class="card-title">{{title}}</h5>
             <h5>{{type}}</h5>
-            <h5>{{technology}}</h5>
+            <h5 v-for="technology in project.technologies">{{technology.name}}</h5>
             <p class="card-text">{{content}}</p>
             <router-link :to="{name: 'project', params: {slug: slug}}" class="btn btn-primary">Apri</router-link>
         </div>

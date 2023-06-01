@@ -15,7 +15,7 @@
             }
         },
         mounted() {
-            const slug = this.$route.params.slug;
+            const slug = this.$route.params.slug; //rotta scritta dopo lo / nel browser
             console.log(slug);
             axios.get(`${this.store.baseUrl}/api/project/${slug}`)
             .then(response => {
