@@ -23,7 +23,12 @@
                 this.project = response.data.project;
                 
             })
-        }
+        },
+        async creates() {
+            this.$watch(
+                () => this.$route.params,
+                axios.get(`${this.store.baseUrl}/api/project/${slug}`))
+    }
     }
 </script>
 
