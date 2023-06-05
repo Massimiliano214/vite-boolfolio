@@ -22,11 +22,14 @@
                 this.sending  = true;
                 this.errors = {};
 
-                axios.post(`${this.store.baseUrl}/api/contacts`, {
+                const payload = {
                     name: this.name,
                     email: this.email,
                     message: this.message
-                }).then(response => {
+                }
+                axios.post(`${this.store.baseUrl}/api/contacts`, payload)
+                .then(response => {
+                    
                     if (response.data.success) {
 
                         this.success = true;
@@ -44,6 +47,7 @@
 
                 }).catch(error => {
                     this.sending = false;
+                    console.log(error);
                 });
             }
         }
